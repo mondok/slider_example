@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Slider Example</title>
+<link href="nouislider.fox.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.nouislider.js"></script>
+<script type="text/javascript">
+	$(function($){
+		var sliderChanged = function(){
+			// [lower, upper]
+			var sliderValues = $(this);
+			// call Solr index here
+			var startValue = sliderValues[0];
+			var endValue = sliderValues[1];
+		};
+
+		$(".slider").noUiSlider({
+		    range: [0, 100]
+		   ,start: [50, 70]
+		   ,handles: 2
+		   ,serialization: {
+		      to: [$("#start"),$("#end")]
+		   }
+		   ,slide: sliderChanged
+		});
+	});	
+</script>
+</head>
+<body>
+	<div class="noUiSlider horizontal slider"></div>
+	<input id="start" type="text">
+	<input id="end" type="text">
+
+</body>
